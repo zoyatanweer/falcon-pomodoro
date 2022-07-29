@@ -1,0 +1,10 @@
+.navigation-container {
+  background-color: var(--background-color);
+  margin: 1rem;
+}
+.nav-brand .title-theme {
+  color: black;
+}
+.title-theme-name {
+  color: #f9c543;
+}
