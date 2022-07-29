@@ -1,0 +1,31 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 2rem 4rem;
+}
+
+.homepage-left-section {
+  text-align: left;
+  width: 45vw;
+}
+
+.heading-h1 {
+  font-size: 8vh;
+  color: var(--yellow-color);
+  margin-bottom: 0;
+}
+.para-medium {
+  font-size: 4vh;
+}
+
+.btn-primary {
+  background-color: var(--yellow-color);
+}
+.btn-primary:hover {
+  background-color: #f1b104;
+}
+.homepage-cover {
+  width: 40%;
+}
