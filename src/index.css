@@ -8,6 +8,7 @@
   /* --text-color: #f8f9fa; */
   --text-color: #000000;
   --yellow-color: #f9c543;
+  --yellow-secondary-color: #f1b104;
   --blue-color: #a1cbe2;
   --bg-color-1: #fae9c9;
   --explore-background: #343a40;
@@ -31,4 +32,10 @@ body {
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
   margin: 0;
+}
+
+.flex-prop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

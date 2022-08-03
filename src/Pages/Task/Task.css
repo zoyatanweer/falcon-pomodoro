@@ -1,0 +1,111 @@
+.tasks-section {
+  background-color: var(--yellow-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 100vh;
+
+  /* margin-bottom: 2rem; */
+}
+
+.task-section-heading {
+  /* display: block; */
+  /* display: flex; */
+  margin-left: -10px;
+  margin-top: 1rem;
+  text-align: left;
+  width: 80vw;
+}
+.task-section-heading > h2 {
+  font-size: 3rem;
+}
+.task-section-heading > h3 {
+  font-size: 2rem;
+}
+.tasks-container {
+  /* background-color: var(--yellow-color); */
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 2rem;
+  padding: 1rem;
+  padding: 2rem;
+  /* height: 65vh; */
+  width: 80vw;
+  /* if chota task container in width  */
+  width: 70vw;
+}
+
+.add-task {
+  background-color: white;
+  /* background-color: #f8f9fa; */
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  /* padding: 0 1rem; */
+  /* margin: 2rem; */
+  height: 7vh;
+  width: 80vw;
+  width: 70vw;
+}
+/* .add-task:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+} */
+.task-button {
+  background-color: white;
+  border: none;
+}
+.add-task-icon {
+  border: none;
+  margin-right: 1rem;
+  height: 2.5em;
+  width: 2.5em;
+}
+.add-task-icon:hover {
+  color: var(--yellow-secondary-color);
+  cursor: pointer;
+}
+
+.add-task-heading {
+  font-size: 2.2rem;
+  padding: 0 1rem;
+}
+
+.task {
+  background-color: white;
+  /* background-color: var(--yellow-color); */
+  border: 2px solid var(--yellow-color);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  width: 98%;
+  width: 80%;
+  width: 90%;
+}
+.task-action-btn {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.task-icon {
+  margin-right: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.task-icon:nth-child(3) {
+  margin-right: 0.5rem;
+}
+.task-icon:hover {
+  color: var(--yellow-color);
+  cursor: pointer;
+}

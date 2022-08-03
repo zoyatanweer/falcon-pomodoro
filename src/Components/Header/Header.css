@@ -8,3 +8,23 @@
 .title-theme-name {
   color: #f9c543;
 }
+.nav-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-icon {
+  margin-right: 4rem;
+  color: black;
+}
+.user-icon {
+  margin-right: 5rem;
+  color: black;
+}
+.theme-icon:hover,
+.user-icon:hover {
+  color: var(--yellow-color);
+  fill: var(--yellow-color);
+  cursor: pointer;
+}
