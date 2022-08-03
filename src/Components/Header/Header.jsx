@@ -37,8 +37,8 @@ const Header = () => {
           />
         </div> */}
         <div className="nav-theme">
-          <DarkModeIcon />
-          <UserIcon />
+          <DarkModeIcon className="theme-icon" />
+          <UserIcon className="user-icon" />
         </div>
         <div className="user-profile">
           {/* {token ? (

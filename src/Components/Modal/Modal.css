@@ -1,0 +1,102 @@
+.modal-container {
+  border-radius: 10px;
+  color: black;
+  background-color: blueviolet;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+
+  height: 70vh;
+  width: 25vw;
+  animation: fadeInDown 0.5s;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-icon {
+  font-size: 2em;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.modal-close-icon:hover {
+  cursor: pointer;
+  color: var(--yellow-color);
+}
+.task-label {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.task-input {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  border: 1px solid white;
+  /* height: 5vh; */
+  height: 8%;
+  width: 80%;
+  margin-bottom: 1.5rem;
+}
+.desc {
+  /* height: 25vh; */
+  padding-top: 0;
+  padding-left: 0;
+  padding: 0 0 130px 0;
+  line-height: 1em;
+}
+.task-input:focus {
+  outline: solid;
+}
+.task-time-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-label-time {
+  margin-right: 0.5rem;
+}
+.task-label-break {
+  margin-left: 3rem;
+  margin-right: 0.5rem;
+}
+.time,
+.break {
+  margin-right: 0;
+  width: 5vw;
+  height: 5vh;
+}
+.break {
+  margin-left: 0;
+}
+.add-task-btn {
+  background-color: var(--yellow-color);
+  border: none;
+  border-radius: 5px;
+
+  height: 5vh;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 20px;
+}
+.add-task-btn:hover {
+  background-color: var(--yellow-secondary-color);
+  cursor: pointer;
+}
+.task-item {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 80%;
+}
