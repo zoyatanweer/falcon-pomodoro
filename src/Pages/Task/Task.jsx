@@ -63,9 +63,9 @@ const Task = () => {
             return (
               <div
                 className="task"
-                style={{
-                  background: modalOpen ? "#ddd9d9" : "white",
-                }}
+                // style={{
+                //   background: modalOpen ? "#ddd9d9" : "white",
+                // }}
               >
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
