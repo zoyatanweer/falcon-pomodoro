@@ -1,12 +1,23 @@
 import React, { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 import { db } from "../firebase-config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [edit, setEdit] = useState(false);
+  const navigate = useNavigate();
+
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
@@ -55,11 +66,66 @@ const TaskProvider = ({ children }) => {
     });
   };
 
-  const editTask = async () => {};
+  const editTask = async (id) => {
+    console.log("aagaya");
+
+    const selectedDocResponse = doc(db, "tasks", id);
+    console.log("aagaya");
+
+    const editedTask = {
+      title: newTask.title,
+      description: newTask.description,
+      time: newTask.time,
+      break: newTask.break,
+    };
+
+    await updateDoc(selectedDocResponse, editedTask);
+
+    const tasksAfterUpdate = tasks.map((task) =>
+      task.id === id
+        ? {
+            ...newTask,
+            id: id,
+            updatedOn: new Date(),
+          }
+        : task
+    );
+
+    setTasks(tasksAfterUpdate);
+    setEdit(false);
+
+    setNewTask({
+      title: "",
+      description: "",
+      time: 0,
+      break: 0,
+    });
+    navigate("/tasks");
+
+    // await updateDoc(selectedDocResponse, editTask);
+  };
+
+  const deleteTask = async (id) => {
+    const selectedDocResponse = doc(db, "tasks", id);
+    await deleteDoc(selectedDocResponse);
+
+    const tasksLeftAfterDelete = tasks.filter((task) => task.id !== id);
+    setTasks(tasksLeftAfterDelete);
+  };
 
   return (
     <TaskContext.Provider
-      value={{ tasks, setTasks, newTask, setNewTask, createTask, editTask }}
+      value={{
+        tasks,
+        setTasks,
+        newTask,
+        setNewTask,
+        edit,
+        setEdit,
+        createTask,
+        editTask,
+        deleteTask,
+      }}
     >
       {children}
     </TaskContext.Provider>

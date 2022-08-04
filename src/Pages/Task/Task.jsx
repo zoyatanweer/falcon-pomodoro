@@ -11,10 +11,18 @@ import { useTask } from "../../Context/TaskContext";
 import "./Task.css";
 
 const Task = () => {
-  const { tasks, setTasks, createTask, editTask } = useTask();
+  const {
+    tasks,
+    setTasks,
+    newTask,
+    setNewTask,
+    edit,
+    setEdit,
+    createTask,
+    editTask,
+    deleteTask,
+  } = useTask();
   const [modalOpen, setModalOpen] = useState(false);
-
-  const editTaskHandler = () => {};
 
   return (
     <>
@@ -70,8 +78,14 @@ const Task = () => {
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
                   <WatchIcon className="task-icon" />
-                  <EditIcon className="task-icon" onClick={editTaskHandler} />
-                  <DeleteIcon className="task-icon" />
+                  <EditIcon
+                    className="task-icon"
+                    // onClick={() => editTaskHandler(task)}
+                  />
+                  <DeleteIcon
+                    className="task-icon"
+                    onClick={() => deleteTask(task.id)}
+                  />
                 </div>
               </div>
             );
