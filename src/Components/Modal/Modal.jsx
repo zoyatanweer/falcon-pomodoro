@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { CloseIcon } from "../../Assets/Svg/allsvg";
 import { useTask } from "../../Context/TaskContext";
 
 import "./Modal.css";
 
 const Modal = ({ show, onClose }) => {
-  const { newTask, setNewTask, createTask } = useTask();
+  const { newTask, setNewTask, createTask, editTask, edit, setEdit } =
+    useTask();
 
   if (!show) {
     return null;
   }
 
-  const addTaskHandler = () => {
-    createTask();
+  const addTaskHandler = (task) => {
+    // createTask();
+    if (edit === true) {
+      editTask(task.id);
+      setNewTask({
+        title: "",
+        description: "",
+        time: 0,
+        break: 0,
+      });
+      setEdit(false);
+    } else {
+      createTask();
+    }
   };
 
   return (
@@ -61,8 +74,8 @@ const Modal = ({ show, onClose }) => {
 
       <button
         className="add-task-btn"
-        onClick={() => {
-          addTaskHandler();
+        onClick={(task) => {
+          addTaskHandler(task);
           onClose();
         }}
       >

@@ -11,10 +11,33 @@ import { useTask } from "../../Context/TaskContext";
 import "./Task.css";
 
 const Task = () => {
-  const { tasks, setTasks, createTask, editTask } = useTask();
-  const [modalOpen, setModalOpen] = useState(false);
+  const {
+    tasks,
+    setTasks,
+    newTask,
+    setNewTask,
+    edit,
+    setEdit,
+    createTask,
+    editTask,
+    deleteTask,
+  } = useTask();
 
-  const editTaskHandler = () => {};
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentTask, setCurrentTask] = useState({});
+
+  const editTaskHandler = (task) => {
+    setEdit(true);
+    setModalOpen(true);
+    setNewTask({
+      ...newTask,
+      title: task.name,
+      description: task.description,
+      time: task.time,
+      break: task.break,
+    });
+    setCurrentTask(task);
+  };
 
   return (
     <>
@@ -63,6 +86,7 @@ const Task = () => {
             return (
               <div
                 className="task"
+                key={task.id}
                 // style={{
                 //   background: modalOpen ? "#ddd9d9" : "white",
                 // }}
@@ -70,8 +94,14 @@ const Task = () => {
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
                   <WatchIcon className="task-icon" />
-                  <EditIcon className="task-icon" onClick={editTaskHandler} />
-                  <DeleteIcon className="task-icon" />
+                  <EditIcon
+                    className="task-icon"
+                    onClick={() => editTaskHandler(task)}
+                  />
+                  <DeleteIcon
+                    className="task-icon"
+                    onClick={() => deleteTask(task.id)}
+                  />
                 </div>
               </div>
             );
