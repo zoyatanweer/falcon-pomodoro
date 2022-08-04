@@ -28,18 +28,6 @@ const Modal = ({ show, onClose }) => {
     }
   };
 
-  // const editTaskHandler = (task) => {
-  //   setModalOpen(true);
-  //   setNewTask({
-  //     ...newTask,
-  //     title: task.name,
-  //     description: task.description,
-  //     time: task.time,
-  //     break: task.break,
-  //   });
-  //   console.log("naya aaya", task);
-  // };
-
   return (
     <div className="modal-container">
       <CloseIcon className="modal-close-icon" onClick={onClose} />

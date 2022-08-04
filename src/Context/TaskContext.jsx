@@ -66,43 +66,66 @@ const TaskProvider = ({ children }) => {
     });
   };
 
+  // const editTask = async (id) => {
+  //   console.log("aagaya");
+
+  //   const selectedDocResponse = doc(db, "tasks", id);
+  //   console.log("aagaya");
+
+  //   const editedTask = {
+  //     title: newTask.title,
+  //     description: newTask.description,
+  //     time: newTask.time,
+  //     break: newTask.break,
+  //   };
+
+  //   await updateDoc(selectedDocResponse, editedTask);
+
+  //   const tasksAfterUpdate = tasks.map((task) =>
+  //     task.id === id
+  //       ? {
+  //           ...newTask,
+  //           id: id,
+  //           updatedOn: new Date(),
+  //         }
+  //       : task
+  //   );
+
+  //   setTasks(tasksAfterUpdate);
+  //   setEdit(false);
+
+  //   setNewTask({
+  //     title: "",
+  //     description: "",
+  //     time: 0,
+  //     break: 0,
+  //   });
+  //   navigate("/tasks");
+
+  //   // await updateDoc(selectedDocResponse, editTask);
+  // };
+
   const editTask = async (id) => {
-    console.log("aagaya");
-
     const selectedDocResponse = doc(db, "tasks", id);
-    console.log("aagaya");
-
     const editedTask = {
       title: newTask.title,
       description: newTask.description,
       time: newTask.time,
       break: newTask.break,
     };
-
     await updateDoc(selectedDocResponse, editedTask);
 
     const tasksAfterUpdate = tasks.map((task) =>
-      task.id === id
-        ? {
-            ...newTask,
-            id: id,
-            updatedOn: new Date(),
-          }
-        : task
+      task.id === id ? { ...newTask, id: id, updatedOn: new Date() } : task
     );
-
     setTasks(tasksAfterUpdate);
     setEdit(false);
-
     setNewTask({
       title: "",
       description: "",
       time: 0,
       break: 0,
     });
-    navigate("/tasks");
-
-    // await updateDoc(selectedDocResponse, editTask);
   };
 
   const deleteTask = async (id) => {

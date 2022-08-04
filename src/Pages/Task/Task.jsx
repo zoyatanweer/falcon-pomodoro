@@ -22,7 +22,22 @@ const Task = () => {
     editTask,
     deleteTask,
   } = useTask();
+
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentTask, setCurrentTask] = useState({});
+
+  const editTaskHandler = (task) => {
+    setEdit(true);
+    setModalOpen(true);
+    setNewTask({
+      ...newTask,
+      title: task.name,
+      description: task.description,
+      time: task.time,
+      break: task.break,
+    });
+    setCurrentTask(task);
+  };
 
   return (
     <>
@@ -71,6 +86,7 @@ const Task = () => {
             return (
               <div
                 className="task"
+                key={task.id}
                 // style={{
                 //   background: modalOpen ? "#ddd9d9" : "white",
                 // }}
@@ -80,7 +96,7 @@ const Task = () => {
                   <WatchIcon className="task-icon" />
                   <EditIcon
                     className="task-icon"
-                    // onClick={() => editTaskHandler(task)}
+                    onClick={() => editTaskHandler(task)}
                   />
                   <DeleteIcon
                     className="task-icon"
