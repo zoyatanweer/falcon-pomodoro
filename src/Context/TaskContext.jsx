@@ -13,6 +13,23 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const TaskContext = createContext();
 
+// const arr = [
+//   {
+//     break: "2",
+//     description: "hi ka description",
+//     id: "13lTX3WA4sBH52lZGIYu",
+//     time: "5",
+//     title: "hi",
+//   },
+//   {
+//     break: "3",
+//     description: "bye ka description",
+//     id: "13lTX3WA4sBH52lZGIYZuu",
+//     time: "8",
+//     title: "bye",
+//   },
+// ];
+
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [edit, setEdit] = useState(false);
@@ -28,15 +45,13 @@ const TaskProvider = ({ children }) => {
   //firebase operations
   const tasksCollectionRef = collection(db, "tasks");
 
-  //for getting data
-  useEffect(() => {
-    const getTasks = async () => {
-      const data = await getDocs(tasksCollectionRef);
-      console.log("data aaya", data);
-      setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getTasks();
-  }, []);
+  // useEffect(() => {
+  //   const getTasks = async () => {
+  //     const data = await getDocs(tasksCollectionRef);
+  //     setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+  //   getTasks();
+  // }, []);
 
   //functions
   const createTask = async () => {
@@ -139,7 +154,7 @@ const TaskProvider = ({ children }) => {
   return (
     <TaskContext.Provider
       value={{
-        tasks,
+        // tasks,
         setTasks,
         newTask,
         setNewTask,
