@@ -24,14 +24,14 @@
   /* width: 100%; */
 }
 .clock-buttons-container,
-.clock-buttons {
+.btn-clocks {
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 70%;
 }
-.clock-buttons {
+.btn-clocks {
   background-color: white;
   border: 2px solid var(--yellow-color);
   border-radius: 5px;
@@ -39,12 +39,34 @@
   height: 5rem;
   width: 14rem;
 
-  /* padding: 5px 30px; */
-
   margin: 1rem;
 }
 
-.play-btn:hover {
+.btn-clocks:hover {
   cursor: pointer;
   background-color: wheat;
+}
+.btn-clocktype {
+  background-color: var(--yellow-color);
+  border: none;
+  font-size: 2rem;
+  margin: 1rem;
+  padding: 5px 10px;
+}
+
+.task-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.task-section > h1 {
+  height: 100%;
+}
+.task-section > p {
+  font-size: 2rem;
+  margin-top: 0;
+}
+.task-section > h3 {
+  font-weight: 400;
 }

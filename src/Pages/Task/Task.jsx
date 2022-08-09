@@ -24,8 +24,8 @@ import "./Task.css";
 
 const Task = () => {
   const {
-    // tasks,
-    // setTasks,
+    tasks,
+    setTasks,
     newTask,
     setNewTask,
     edit,
@@ -35,7 +35,7 @@ const Task = () => {
     deleteTask,
   } = useTask();
 
-  const [newTasks, setNewTasks] = useState([]);
+  // const [newTasks, setNewTasks] = useState([]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
@@ -58,14 +58,10 @@ const Task = () => {
   useEffect(() => {
     const getTasks = async () => {
       const data = await getDocs(tasksCollectionRef);
-      setNewTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getTasks();
-    return () => {
-      console.log("bfhefuiere");
-    };
   }, []);
-  console.log("all tasks", newTasks);
 
   return (
     <>
@@ -81,7 +77,7 @@ const Task = () => {
       >
         <div className="task-section-heading">
           <h2>Welcome back, User!</h2>
-          <h3>You have {newTasks.length} tasks left!</h3>
+          <h3>You have {newTask.length} tasks left!</h3>
         </div>
 
         <div
@@ -110,7 +106,7 @@ const Task = () => {
           </div>
           <Modal show={modalOpen} onClose={() => setModalOpen(false)} />
 
-          {newTasks.map((task) => {
+          {tasks.map((task) => {
             return (
               <div
                 className="task"
@@ -122,10 +118,7 @@ const Task = () => {
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
                   <Link to={`/task/${task.id}`}>
-                    <WatchIcon
-                      className="task-icon"
-                      onClick={<Clock tasks={newTasks} />}
-                    />
+                    <WatchIcon className="task-icon" />
                   </Link>
 
                   <EditIcon
