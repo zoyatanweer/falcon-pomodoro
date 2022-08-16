@@ -28,15 +28,13 @@ const TaskProvider = ({ children }) => {
   //firebase operations
   const tasksCollectionRef = collection(db, "tasks");
 
-  //for getting data
-  useEffect(() => {
-    const getTasks = async () => {
-      const data = await getDocs(tasksCollectionRef);
-      console.log("data aaya", data);
-      setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getTasks();
-  }, []);
+  // useEffect(() => {
+  //   const getTasks = async () => {
+  //     const data = await getDocs(tasksCollectionRef);
+  //     setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+  //   getTasks();
+  // }, []);
 
   //functions
   const createTask = async () => {

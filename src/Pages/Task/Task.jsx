@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   AddTaskIcon,
   DeleteIcon,
@@ -7,7 +8,18 @@ import {
 } from "../../Assets/Svg/allsvg";
 import { Header } from "../../Components/Header/Header";
 import { Modal } from "../../Components/Modal/Modal";
+import { Clock } from "../Clock/Clock";
 import { useTask } from "../../Context/TaskContext";
+import {
+  collection,
+  doc,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { db } from "../../firebase-config";
+
 import "./Task.css";
 
 const Task = () => {
@@ -22,6 +34,8 @@ const Task = () => {
     editTask,
     deleteTask,
   } = useTask();
+
+  // const [newTasks, setNewTasks] = useState([]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
@@ -39,6 +53,16 @@ const Task = () => {
     setCurrentTask(task);
   };
 
+  const tasksCollectionRef = collection(db, "tasks");
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const data = await getDocs(tasksCollectionRef);
+      setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getTasks();
+  }, []);
+
   return (
     <>
       <Header />
@@ -53,7 +77,7 @@ const Task = () => {
       >
         <div className="task-section-heading">
           <h2>Welcome back, User!</h2>
-          <h3>You have {tasks.length} tasks left!</h3>
+          <h3>You have {newTask.length} tasks left!</h3>
         </div>
 
         <div
@@ -93,7 +117,10 @@ const Task = () => {
               >
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
-                  <WatchIcon className="task-icon" />
+                  <Link to={`/task/${task.id}`}>
+                    <WatchIcon className="task-icon" />
+                  </Link>
+
                   <EditIcon
                     className="task-icon"
                     onClick={() => editTaskHandler(task)}
