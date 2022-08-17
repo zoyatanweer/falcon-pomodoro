@@ -8,7 +8,6 @@ import {
 } from "../../Assets/Svg/allsvg";
 import { Header } from "../../Components/Header/Header";
 import { Modal } from "../../Components/Modal/Modal";
-import { Clock } from "../Clock/Clock";
 import { useTask } from "../../Context/TaskContext";
 import {
   collection,
@@ -21,6 +20,7 @@ import {
 import { db } from "../../firebase-config";
 
 import "./Task.css";
+import { useTheme } from "../../Context/ThemeContext";
 
 const Task = () => {
   const {
@@ -35,10 +35,9 @@ const Task = () => {
     deleteTask,
   } = useTask();
 
-  // const [newTasks, setNewTasks] = useState([]);
-
   const [modalOpen, setModalOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
+  const { theme } = useTheme();
 
   const editTaskHandler = (task) => {
     setEdit(true);
@@ -69,10 +68,11 @@ const Task = () => {
 
       <div
         className="tasks-section"
+        // className={`tasks-section  ${
+        //   theme === "light" ? "tasks-section" : "dark-theme"
+        // } `}
         style={{
           background: modalOpen ? "#be8800cc" : "var(--yellow-color)",
-          // opacity: modalOpen ? "0.7" : "1",
-          // overflow: modalOpen ? "hidden" : "none",
         }}
       >
         <div className="task-section-heading">
@@ -82,12 +82,18 @@ const Task = () => {
 
         <div
           className="tasks-container"
+          // className={`tasks-container  ${
+          //   theme === "light" ? "tasks-container" : "dark-theme"
+          // } `}
           style={{
             background: modalOpen ? "#ddd9d9" : "white",
           }}
         >
           <div
             className="add-task flex-prop"
+            // className={`add-task flex-prop  ${
+            //   theme === "light" ? "dark-theme" : "light-theme"
+            // } `}
             style={{
               background: modalOpen ? "#ddd9d9" : "white",
             }}
@@ -101,20 +107,13 @@ const Task = () => {
               }}
             >
               <AddTaskIcon className="add-task-icon" />
-              {/* <Modal show={modalOpen} /> */}
             </button>
           </div>
           <Modal show={modalOpen} onClose={() => setModalOpen(false)} />
 
           {tasks.map((task) => {
             return (
-              <div
-                className="task"
-                key={task.id}
-                // style={{
-                //   background: modalOpen ? "#ddd9d9" : "white",
-                // }}
-              >
+              <div className="task" key={task.id}>
                 <h3>{task.title}</h3>
                 <div className="task-action-btn">
                   <Link to={`/task/${task.id}`}>

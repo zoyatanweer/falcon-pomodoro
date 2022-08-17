@@ -1,0 +1,133 @@
+.login-form {
+  box-shadow: 0px 0px 10px 1px var(--navigation-container-shadow);
+  margin-top: 9rem;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-heading {
+  margin-top: 5rem;
+}
+.login-email,
+.login-password {
+  border: 1.5px solid var(--form-input-border-color);
+  border-radius: 6px;
+  font-size: 1.7rem;
+
+  height: 4rem;
+  width: 28rem;
+  padding: 5px;
+  margin: 1rem;
+}
+.login-btn {
+  background-color: var(--primary-color);
+  /* border: 2px solid var(--primary-color); */
+  border: none;
+  border-radius: 5px;
+  color: var(--desktop-searchbar-border);
+  /* font-size: 1.6rem;
+    margin: 1rem;
+    padding: 10px; */
+  width: 9rem;
+}
+.login-btn:hover {
+  background-color: var(--login-btn-bg-color-hover);
+  border: 2px solid var(--login-btn-bg-color-hover);
+  cursor: pointer;
+}
+.login-para {
+  color: var(--light-theme-color);
+  color: var(--text-color);
+  font-size: 1.7rem;
+}
+.login-link {
+  color: var(--primary-color);
+  /* color: #495057; */
+  text-decoration: none;
+}
+.login-link:hover {
+  color: var(--login-btn-bg-color-hover);
+}
+.right-nav-img:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* rememebr-me */
+.remember-me-block,
+.forgot-pwd-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: var(--light-theme-color); */
+  color: var(--text-color);
+}
+.remember-me-input {
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+}
+.remember-me-label {
+  color: var(--light-theme-color);
+  color: var(--text-color);
+  font-size: 1.8rem;
+  margin-left: 0.5rem;
+}
+
+/* forgot-password */
+.forgot-pwd-block {
+  margin: 1rem;
+}
+.forgot-pwd-para {
+  font-size: 1.8rem;
+  color: var(--light-theme-color);
+  color: var(--text-color);
+}
+.forgot-pwd-para:hover {
+  color: var(--primary-color);
+}
+
+/* buttons-block */
+.login {
+  border: none;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  margin: 1rem;
+  padding: 10px;
+  height: 4rem;
+  width: 70%;
+}
+
+.login-test {
+  background-color: var(--text-color);
+  color: var(--primary-color);
+}
+.login-test:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* login-signup */
+.login-signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-form {
+  height: 50rem;
+  width: 50rem;
+  object-fit: cover;
+}
+.login-signup-form {
+  background-color: var(--explore-background);
+  border-radius: 10px;
+  width: 35%;
+  text-align: center;
+}
+.form-heading {
+  color: var(--text-color);
+  font-size: 3rem;
+}
