@@ -17,14 +17,17 @@
 .theme-icon {
   margin-right: 4rem;
   color: black;
+  color: var(--yellow-color);
 }
 .user-icon {
   margin-right: 5rem;
   color: black;
+  color: var(--yellow-color);
 }
 .theme-icon:hover,
 .user-icon:hover {
   color: var(--yellow-color);
-  fill: var(--yellow-color);
+  /* fill: var(--yellow-color); */
+  color: grey;
   cursor: pointer;
 }
